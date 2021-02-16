@@ -1,0 +1,23 @@
+type Query {
+    items(orderBy: [OrderByInput], first: Int = 10, offset: Int = 0) : ItemConnection!
+}
+
+type ItemConnection {
+    totalCount: Int!
+    nodes: [Item]
+}
+
+type Item {
+    id: String
+    name: String
+}
+
+input OrderByInput {
+    field: String
+    sortOrder: SortOrder
+}
+
+enum SortOrder {
+    Asc
+    Desc
+}
